@@ -23,21 +23,21 @@ class stack {
     }
   }
 
-let a = new stack();
-
-a.push(10);
-a.push(20);
-a.push(30);
-a.push(40);
-a.push(50);
-
-a.pop();
-a.pop();
-a.pop();
-
-console.log(a);
+  let a = new stack();
+  
+  a.push(10);
+  a.push(20);
+  a.push(30);
+  a.push(40);
+  a.push(50);
+  
+  a.pop();
+  a.pop();
+  a.pop();
+  
+  console.log(a);
+  console.log(a.length());
 
 // a.pop();
-console.log(a.length());
 // console.log(a.peek());
 // console.log(a.pop());
