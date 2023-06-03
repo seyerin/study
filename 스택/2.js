@@ -11,4 +11,4 @@ function solution(arr)
   }
   
   return a;
-}
+}.
