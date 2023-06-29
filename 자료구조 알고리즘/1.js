@@ -35,7 +35,6 @@ function validAnagram(str1, str2){
         frequencyCounter1[letter] = -1;
       }
       }
-      
   console.log(true);
   return true;
 }
