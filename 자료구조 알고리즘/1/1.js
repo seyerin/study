@@ -1,5 +1,4 @@
 function validAnagram(str1, str2){
-  // add whatever parameters you deem necessary - good luck!
   let lower_1 = str1.toLowerCase();
   let lower_2 = str2.toLowerCase();
 
@@ -25,14 +24,15 @@ function validAnagram(str1, str2){
     //     return false;
     //   }
     // }
+    // console.log(lower_2[1]);
     for(let i = 0; i < str2; i++){
       let letter = lower_2[i];
-      // console.log(letter);
       if(!(frequencyCounter1[letter])){
         return false;
       }
       else{
         frequencyCounter1[letter] = -1;
+        // console.log(frequencyCounter1);
       }
       }
   console.log(true);
