@@ -50,18 +50,22 @@
 //---------------------------------------------------------------------------------2
 function averagePair(arr, num){
   let num1 = 0; 
-  // let num2 = 1;
+  let num2 = arr.length -1;
   console.log(arr);
-  
-  
-  for(let num2 = num1+1; num2 < arr.length; num2++){
-    if(((arr[num1] + arr[num2])/2) != num){
-      console.log(num1, num2, (arr[num1] + arr[num2])/2 == num);
-      // num1++;
+  while(num1 < num2){
+    if(((arr[num1]+arr[num2])/2) === num){
+      console.log("t");
+      return true;
+    }
+    else if(((arr[num1]+arr[num2])/2) < num){
+      num1++;
+    }
+    else{
+      num2--;
     }
   }
-  
-  return true;
+
+  return false;
 }
 
 averagePair([1,3,3,5,6,7,10,12,19],8);
