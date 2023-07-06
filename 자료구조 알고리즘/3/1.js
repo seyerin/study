@@ -154,32 +154,25 @@
 //제일 짧은 길이를 구함 그리고 39를 만들기 위해 왔다갔다 하는게 아니라 그냥 계속 쭉쭉 가면서 계산하는게 신기함
 //---------------------------------------------------------------------------------------------------------------8
 function findLongestSubstring(str){
-  let letterOfArr = [];
-  // for(let i = 0; i < str.length; i++){
-  //   letterOfArr.push(str[i]);
-  // }
-  let start = 0;
-  let end = start + 1;
+  
+  let letterOfObj = {};
   let length = 0;
-  while(start < str.length){
+  let start = 0;
 
-    if(letterOfArr.indexOf(str[start]) == -1){
-    letterOfArr.push(str[start]);
-    start++;
+  for(let i = 0; i < str.length; i++){
+    let index = str[i];
+    if(letterOfObj[index]){
+      start = Math.max(start, letterOfObj[index]);
+    }
+    
+    length = Math.max(length, i-start+1);
+
+    letterOfObj[index] = i+1;
+      
+    console.log(letterOfObj, start);
   }
-  else if(letterOfArr.indexOf(str[start]) != -1){
-    // console.log(start, letterOfArr. length);
-    length = Math.max(length, letterOfArr.length);
-    start = str.indexOf(str[start]) + 1;
-    // console.log(start);
-    letterOfArr = [];
-    // // start++;
-  }
-  if(start == str.length){
-    console.log(length)
-    return length;
-    break
-  }
-  }
+
+  console.log(length);
 }
-findLongestSubstring('longestsubstring');
+findLongestSubstring('thisishowwedoit');
+//'thisishowwedoit'
