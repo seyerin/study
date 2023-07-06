@@ -25,7 +25,7 @@
 // }
 
 // sameFrequency(34, 43);
-//----------------------------------------------------------------------------------------------------------------------1
+//----------------------------------------------------------------------------------------------------------------------3
 // function areThereDuplicates(arg1,arg2,arg3,arg4) {
 //   // Two pointers
 //   args = [];
@@ -47,29 +47,29 @@
 //   return false
 // }
 // areThereDuplicates('a', 'b', 'c', 'a');
-//--------------------------------------------------------------------------------2
-function averagePair(arr, num){
-  let num1 = 0; 
-  let num2 = arr.length -1;
-  console.log(arr);
-  while(num1 < num2){
-    if(((arr[num1]+arr[num2])/2) === num){
-      console.log("t");
-      return true;
-    }
-    else if(((arr[num1]+arr[num2])/2) < num){
-      num1++;
-    }
-    else{
-      num2--;
-    }
-  }
+//--------------------------------------------------------------------------------4
+// function averagePair(arr, num){
+//   let num1 = 0; 
+//   let num2 = arr.length -1;
+//   console.log(arr);
+//   while(num1 < num2){
+//     if(((arr[num1]+arr[num2])/2) === num){
+//       console.log("t");
+//       return true;
+//     }
+//     else if(((arr[num1]+arr[num2])/2) < num){
+//       num1++;
+//     }
+//     else{
+//       num2--;
+//     }
+//   }
 
-  return false;
-}
+//   return false;
+// }
 
-averagePair([1,3,3,5,6,7,10,12,19],8);
-//-----------------------------------------------------------------3
+// averagePair([1,3,3,5,6,7,10,12,19],8);
+//-----------------------------------------------------------------5
 // function isSubsequence(str1, str2) {
 //   let locationArr = [];
 //   let letterArr1 = [];
@@ -100,3 +100,86 @@ averagePair([1,3,3,5,6,7,10,12,19],8);
 //   return true;
 // }
 // isSubsequence('sing', 'string');
+//-----------------------------------------------------------------6
+// function maxSubarraySum(arr, length){
+//   if(arr.length < length){
+//     console.log(null);
+//     return null;
+//   }
+//   let sum = 0;
+//   let max = 0;
+  
+//   for(let i = 0; i < length; i++){
+//     sum += arr[i]
+//   }
+//   max = sum;
+//   for(let i = length; i < arr.length; i++){
+//     sum = (sum + arr[i]) - arr[i-length];
+//     max = Math.max(sum, max);
+//   }
+//   console.log(max);
+// }
+// maxSubarraySum([2,3], 3);
+//------------------------------------------------------------------------7
+// function minSubArrayLen (arr, num){
+//   for(let i in arr){
+//     if(i > num){
+//       return i;
+//     }
+//   }
+//   let sum = 0;
+//   let time = Infinity;
+//   let start = 0;
+//   let end = 0;
+
+//   while(start < arr.length){
+//     if(sum < num && end < arr.length){
+//       sum += arr[end];
+//       end++;
+//     }
+//     else if(sum >= num){
+//       time = Math.min(time, end-start);
+//       sum -= arr[start];
+//       start++;
+//     }
+//     else{
+//       break
+//     }
+//   }
+//   return time === Infinity ? 0:time;
+// }
+// minSubArrayLen([1,4,16,22,5,7,8,9,10],39);// 10 22 7
+//ㄴ> 지린다 이 로직 좋음 생각도 못해본 방법, 39가 됐을 때 배열 길이를 카운트 하고 비교하는게 아니라 
+//일단 39이상인 수가 나왔을 때 배열 길이 카운팅 하고 39 이상인 수가 나올 때마다 카운팅 된 배열길이를 비교해서 
+//제일 짧은 길이를 구함 그리고 39를 만들기 위해 왔다갔다 하는게 아니라 그냥 계속 쭉쭉 가면서 계산하는게 신기함
+//---------------------------------------------------------------------------------------------------------------8
+function findLongestSubstring(str){
+  let letterOfArr = [];
+  // for(let i = 0; i < str.length; i++){
+  //   letterOfArr.push(str[i]);
+  // }
+  let start = 0;
+  let end = start + 1;
+  let length = 0;
+  while(start < str.length){
+
+    if(letterOfArr.indexOf(str[start]) == -1){
+    letterOfArr.push(str[start]);
+    start++;
+  }
+  else if(letterOfArr.indexOf(str[start]) != -1){
+    // console.log(start, letterOfArr. length);
+    length = Math.max(length, letterOfArr.length);
+    start = str.indexOf(str[start]) + 1;
+    // console.log(start);
+    letterOfArr = [];
+    // // start++;
+  }
+  if(start == str.length){
+    console.log(length)
+    return length;
+    break
+  }
+  }
+}
+findLongestSubstring('longestsubstring');
