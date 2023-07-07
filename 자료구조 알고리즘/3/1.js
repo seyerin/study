@@ -153,26 +153,26 @@
 //일단 39이상인 수가 나왔을 때 배열 길이 카운팅 하고 39 이상인 수가 나올 때마다 카운팅 된 배열길이를 비교해서 
 //제일 짧은 길이를 구함 그리고 39를 만들기 위해 왔다갔다 하는게 아니라 그냥 계속 쭉쭉 가면서 계산하는게 신기함
 //---------------------------------------------------------------------------------------------------------------8
-function findLongestSubstring(str){
+// function findLongestSubstring(str){
   
-  let letterOfObj = {};
-  let length = 0;
-  let start = 0;
+//   let letterOfObj = {};
+//   let length = 0;
+//   let start = 0;
 
-  for(let i = 0; i < str.length; i++){
-    let index = str[i];
-    if(letterOfObj[index]){
-      start = Math.max(start, letterOfObj[index]);
-    }
-    
-    length = Math.max(length, i-start+1);
+//   for(let i = 0; i < str.length; i++){
+//     let index = str[i];
+//     if(letterOfObj[index]){
+//       start = Math.max(start, letterOfObj[index]);
+//     }
 
-    letterOfObj[index] = i+1;
-      
-    console.log(letterOfObj, start);
-  }
+//     length = Math.max(length, i-start+1);
 
-  console.log(length);
-}
-findLongestSubstring('thisishowwedoit');
-//'thisishowwedoit'
+//     letterOfObj[index] = i+1;
+
+//   }
+
+// }
+// findLongestSubstring('thisishowwedoit');
+// //'thisishowwedoit'
+//개어렵다... 생각조차 못한 방법이라 더 어려움 설마 객체를 쓸까 했는데 객체를 써벌임 근데 쓰는 방식은 또 내가 생각했던 거랑 다름 앞으로 어카냐
+//---------------------------------------------------------9
