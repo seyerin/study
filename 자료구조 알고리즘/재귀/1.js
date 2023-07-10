@@ -92,3 +92,11 @@
 //   return fib(n-1) + fib(n-2);
 // }
 // fib(4);
+//-----------------------------------------------------------------------------------5
+function reverse(){
+  // add whatever parameters you deem necessary - good luck!
+}
+
+
+// reverse('awesome') // 'emosewa'
+// reverse('rithmschool') // 'loohcsmhtir'
