@@ -93,10 +93,76 @@
 // }
 // fib(4);
 //-----------------------------------------------------------------------------------5
-function reverse(){
-  // add whatever parameters you deem necessary - good luck!
-}
-
-
+// function reverse(str){
+//   let arr = []
+//   for(let i = 0; i < str.length; i++){
+//     arr.push(str[i]);
+//   }
+//   let result = "";
+//   function helper(helperInput){
+//     if(helperInput.length == 0){
+//       return "";
+//     }
+//     result = result + helperInput[helperInput.length - 1];
+//     helperInput.pop()
+//     // console.log()
+//     helper(helperInput);
+//   }
+//   helper(arr);
+//   return result;
+// console.log(str.slice(1) + str[0]);
+// }
 // reverse('awesome') // 'emosewa'
 // reverse('rithmschool') // 'loohcsmhtir'
+//---------------------------------------------------------------------------6
+// isPalindrome('foobar') // false
+// isPalindrome('amanaplanacanalpanama') // true
+// isPalindrome('amanaplanacanalpandemonium') // false
+
+// function isPalindrome(str){
+//   if(str.length === 1){
+//     return true
+//   }
+//   if(str[0] === str[str.length-1]){
+//     isPalindrome(str.slice(1, -1))
+//   }
+//   return false;
+// }
+// isPalindrome('awesome') // false
+// isPalindrome('foobar') // false
+// isPalindrome('tacocat') // true
+// isPalindrome('amanaplanacanalpanama') // true
+// isPalindrome('amanaplanacanalpandemonium') // false
+// 왜 str.slice(-1) 이 마지막 글자임?
+//----------------------------------------------------------------------------------------7
+// const isOdd = val => val % 2 !== 0;
+// function someRecursive(arr, func){
+//   if(arr.length === 0){
+//     return false;
+//   }
+//   if(func(arr[0])){
+//     return true;
+//   }
+//   return someRecursive(arr.slice(1), func);
+// }
+// SAMPLE INPUT / OUTPUT
+
+// someRecursive([1,2,3,4], isOdd) // true
+// someRecursive([4,6,8,9], isOdd) // true
+// someRecursive([4,6,8], isOdd) // false
+// someRecursive([4,6,8], val => val > 10); // false
+//------------------------------------------------------------8
+// function flatten(arr){
+//   let result = [];
+//   for(let i = 0; i < arr.length; i++){
+//     if(Array.isArray(arr[i])){
+//       result = result.concat(flatten(arr[i]));
+//     }
+//     else{
+//       result.push(arr[i]);
+//     }
+//   }
+//   return result;
+// }
+// flatten([1, [2, [3, 4], [[5]]]]) 
+//------------------------------------------------------------------9
