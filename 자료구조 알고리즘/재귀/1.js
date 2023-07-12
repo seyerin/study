@@ -166,3 +166,165 @@
 // }
 // flatten([1, [2, [3, 4], [[5]]]]) 
 //------------------------------------------------------------------9
+function capitalizeFirst (arr) {
+  // let result = [];
+  
+  // function helper(helperInput){
+  //   if(helperInput.length == 0){
+  //     return result
+  //   }
+  //   helperInput.push(helperInput[0][0].toUpperCase());
+  //   helperInput.push(helperInput[0].slice(1));
+  //   result.push(helperInput[helperInput.length -2].concat(helperInput[helperInput.length -1]));
+  //   helperInput.splice(helperInput.length-2, helperInput.length - 1);
+  //   helper(helperInput.slice(1));
+  //   console.log(helperInput);
+  // }
+  // helper(arr);
+  // return result;
+}
+
+//capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
+//--------------------------------------------------------------------------10
+// function nestedEvenSum (obj, result = 0) {
+//   for(let key in obj){
+//     if(typeof(obj[key]) === "object"){
+//       result += nestedEvenSum(obj[key]);
+//     }
+//     else if(typeof(obj[key]) === "number" && obj[key] % 2 === 0){
+//       result += obj[key];
+//     }
+//   }
+//   console.log(result);
+//   return result;
+// }
+
+// function nestedEvenSum (obj) {
+//   let result = 0;
+
+//   function helper(helperInput){
+//     for(let key in helperInput){
+//       if(typeof(helperInput[key]) === "object"){
+//         result += helper(helperInput[key]);
+//       }
+//       else if(typeof(helperInput[key]) === "number" && helperInput[key]%2 === 0){
+//         result += helperInput[key];
+//       }
+//     }
+//   }
+//   helper(obj);
+//   // console.log(result);
+//   return result;
+// }
+//ㄴ> 왜 안됨?? 왜 nan?
+
+// var obj1 = {
+//   outer: 2,
+//   obj: {
+//     inner: 2,
+//     otherObj: {
+//       superInner: 2,
+//       notANumber: true,
+//       alsoNotANumber: "yup"
+//     }
+//   }
+// }
+
+// var obj2 = {
+//   a: 2,
+//   b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+//   c: {c: {c: 2}, cc: 'ball', ccc: 5},
+//   d: 1,
+//   e: {e: {e: 2}, ee: 'car'}
+// };
+
+// nestedEvenSum(obj1); // 6
+// // nestedEvenSum(obj2); // 10
+//---------------------------------------------------------------------11
+// function capitalizeWords(arr){
+//   let result = [];
+//   function helper(helperInput){
+//     if(helperInput.length === 0){
+//     return result;
+//     }
+//     result.push(helperInput[0].toUpperCase());
+//     helper(helperInput.slice(1));
+//   }
+//   helper(arr);
+//   return result;
+// }
+
+// capitalizeWords(["a","b","c","d","e"]);
+//----------------------------------------------------------------------------12
+// function stringifyNumbers(obj){
+//   let result = {};
+//   for(let key in obj){
+//     if(typeof(obj[key]) == "number"){
+//       result[key] = obj[key].toString();
+//     }
+//     else if(typeof(obj[key]) == "object" && !Array.isArray(obj[key])){
+//       result[key] = stringifyNumbers(obj[key]);
+//     }
+//     else{
+//       result[key] = obj[key];
+//     }
+//   }
+//   return result;
+// }
+
+// let obj = {
+//       num: 1,
+//       test: [],
+//       data: {
+//         val: 4,
+//         info: {
+//               isRight: true,
+//               random: 66
+//           }
+//       }
+//   }
+  
+//   // {
+//   //   num: "1",
+//   //   test: [],
+//   //   data: {
+//   //     val: "4",
+//   //     info: {
+//   //       isRight: true,
+//   //       random: "66"
+//   //     }
+//   //   }
+//   // }
+  
+//   stringifyNumbers(obj);
+//-----------------------------------------------------------------------13
+function collectStrings(obj){
+  let result = [];
+  for(let key in obj){
+    if(typeof(obj[key]) === "string"){
+      result.push(obj[key]);
+    }
+    else{
+      result = result.concat(collectStrings(obj[key]));
+    }
+  }
+  console.log(result);
+  return result;
+}
+const obj = {
+  stuff: "foo",
+  data: {
+      val: {
+          thing: {
+              info: "bar",
+              moreInfo: {
+                  evenMoreInfo: {
+                      weMadeIt: "baz"
+                  }
+              }
+          }
+      }
+  }
+}
+
+collectStrings(obj) // ["foo", "bar", "baz"])
